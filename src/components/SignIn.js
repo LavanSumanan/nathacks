@@ -60,6 +60,7 @@ class SignIn extends Component {
             <label>
               Username
               <input
+                required
                 type="text"
                 onChange={this.handleChange}
                 name="username"
@@ -71,6 +72,7 @@ class SignIn extends Component {
             <label>
               Password
               <input
+                required
                 type="password"
                 name="password"
                 value={this.state.password}
