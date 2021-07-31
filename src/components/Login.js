@@ -6,6 +6,8 @@ class Login extends Component {
     this.state = {
       username: "",
       password: "",
+      loginError: "",
+      page: "Login",
     };
   }
 
@@ -17,7 +19,14 @@ class Login extends Component {
     fetch("/login")
       .then((res) => res.json())
       .then((data) => {
-        //check if valid login, if so, change a variable to render a new page
+        if (data === true) {
+          this.setState({ page: "Home" });
+        } else if (data === "dne") {
+          this.setState({
+            page: "Login",
+            loginError: "That user does not exist!",
+          });
+        }
       });
     event.preventDefault();
   };
@@ -25,7 +34,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.andleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <div>
             <label>
               Username
@@ -47,6 +56,7 @@ class Login extends Component {
                 value={this.state.password}
               />
             </label>
+            <input type="submit" value="Submit" />
           </div>
         </form>
       </div>
