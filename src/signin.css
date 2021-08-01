@@ -64,9 +64,3 @@ body {
   grid-area: aside;
   padding: 50% 10px 50% 10px;
 }
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
