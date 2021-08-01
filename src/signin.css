@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.signin-container {
+  display: grid;
+  grid-template-areas:
+    "header header aside"
+    "input input aside"
+    "input input aside";
+}
+
+.header-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: header;
+  padding: 100px 50px;
+  margin: 20px 10px;
+}
+
+.login-section {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: minmax(min-content, 200px);
+  grid-template-areas:
+    "username username"
+    "password password"
+    "login signin";
+  grid-area: input;
+  padding: 10px 10px 10px 10px;
+}
+
+.username-div {
+  grid-area: username;
+}
+
+.password-div {
+  grid-area: password;
+}
+
+.login-btn {
+  grid-area: login;
+}
+
+.signin-btn {
+  grid-area: signin;
+}
+
+.signin-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-area: aside;
+  padding: 50% 10px 50% 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
