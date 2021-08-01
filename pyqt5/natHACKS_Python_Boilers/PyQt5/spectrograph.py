@@ -14,6 +14,8 @@ More complex and accurate simulation.
 '''
 
 
+from utils.lsl_functions.muse_connect import send_muse
+from utils.lsl_functions.pyqt5_send_receive import *
 from scipy import fft
 import sqlite3
 import pandas as pd
@@ -37,8 +39,6 @@ import matplotlib
 
 matplotlib.use('Qt5Agg')
 
-#from utils.lsl_functions.pyqt5_send_receive import *
-#from utils.lsl_functions.muse_connect import send_muse
 #from utils.arduino import arduino_run
 #from utils.lsl_functions.OpenBCI_connect_windows import send_openbci
 # \u03B1 = alpha

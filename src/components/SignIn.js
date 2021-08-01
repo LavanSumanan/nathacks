@@ -1,118 +1,131 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import "../signin.css";
 
-class SignIn extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      password: "",
-      loginError: "",
+const SignIn = (props) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  // const [loginError, setLoginError] = useState("");
 
-      // for login:
-      // if data === "success": ""
-      // if data === "dne": "User does not exist!"
-      // if data === "pwd": "Incorrect password!"
-      // for sign up:
-      // if data === "success": ""
-      // if data === "exists": "That username is taken!"
-      page: "Login", // Login, Home, (Upload), Summary, Sleep Schedule
-    };
-  }
+  // for login:
+  // if data === "success": ""
+  // if data === "dne": "User does not exist!"
+  // if data === "pwd": "Incorrect password!"
+  // for sign up:
+  // if data === "success": ""
+  // if data === "exists": "That username is taken!"
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
+  // make into async and put in login button's onSubmit
+  // useEffect(() => {
+  //   fetch("/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ username, password }),
+  //   }).then((response) =>
+  //     response.json().then((data) => {
+  //       console.log(data);
+  //       if (data["login"] === "dne") {
+  //         setIsLoggedIn(false);
+  //         setLoginError("That user does not exist");
+  //       } else if (data["login"] === "pwd") {
+  //         setIsLoggedIn(false);
+  //         setLoginError("Incorrect password");
+  //       } else if (data["login"] === "success") {
+  //         setIsLoggedIn(true);
+  //         setPage(<Home />);
+  //         setLoginError("");
+  //       }
+  //     })
+  //   );
+  // }, []);
 
-  handleSubmit = (event) => {
-    let action = event.target.name;
-    if (action === "login") {
-      fetch("/login")
-        .then((res) => res.json())
-        .then((data) => {
-          if (data === "success") {
-            this.setState({ page: "Home", loginError: "" });
-          } else if (data === "dne") {
-            this.setState({ loginError: "User does not exist!" });
-          } else if (data === "pwd") {
-            this.setState({ loginError: "Incorrect password!" });
-          }
-        });
-    } else if (action === "signup") {
-      fetch("/signup")
-        .then((res) => res.json())
-        .then((data) => {
-          if (data === "success") {
-            this.setState({ page: "Home", loginError: "" });
-          } else if (data === "exists") {
-            this.setState({ loginError: "That username is taken!" });
-          }
-        });
-    }
-    console.log(this.state);
-    event.preventDefault();
-  };
+  // const handleSubmit = (event) => {
+  //   else if (action === "signup") {
+  //     fetch("/signup")
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         if (data === "success") {
+  //           this.setState({ page: "Home", loginError: "" });
+  //         } else if (data === "exists") {
+  //           this.setState({ loginError: "That username is taken!" });
+  //         }
+  //       });
+  //   }
+  // };
 
-  render() {
-    return (
-      <div className="signin-container">
-        <header className="header-box">
-          <img src="" alt="logo" />
-          <h2>Name</h2>
-        </header>
+  return (
+    <div className="signin-container">
+      <header className="header-box">
+        <img src="" alt="logo" />
+        <h2>Name</h2>
+      </header>
 
-        <section className="login-section">
-          <form onSubmit={this.handleSubmit}>
-            <div className="username-div">
-              <label>
-                Username
-                <input
-                  required
-                  type="text"
-                  onChange={this.handleChange}
-                  name="username"
-                  value={this.state.username}
-                />
-              </label>
-            </div>
-            <div className="password-div">
-              <label>
-                Password
-                <input
-                  required
-                  type="password"
-                  name="password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                />
-              </label>
-            </div>
-            <br />
-            <div className="signin-buttons">
+      <section className="login-section">
+        <form>
+          <div className="username-div">
+            <label>
+              Username
               <input
-                className="login-btn"
-                name="login"
-                type="submit"
-                value="Login"
+                required
+                type="text"
+                name="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
+            </label>
+          </div>
+          <div className="password-div">
+            <label>
+              Password
               <input
-                className="signin-btn"
-                name="signup"
-                type="submit"
-                value="Sign Up"
+                required
+                type="password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
-            </div>
-          </form>
-        </section>
+            </label>
+          </div>
+          <br />
+          <div className="signin-buttons">
+            <input
+              className="login-btn"
+              name="login"
+              type="submit"
+              value="Login"
+              onClick={async () => {
+                const user = { username: username, password: password };
+                const response = await fetch("http://localhost:5000/login", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(user),
+                });
 
-        <aside className="banner">
-          <p>Perfect Time,</p>
-          <p>Perfect Place,</p>
-          <p>Perfect Rest</p>
-        </aside>
-      </div>
-    );
-  }
-}
+                if (response.ok) {
+                  console.log("response worked!");
+                }
+              }}
+            />
+            <input
+              className="signin-btn"
+              name="signup"
+              type="submit"
+              value="Sign Up"
+            />
+          </div>
+        </form>
+      </section>
+
+      <aside className="banner">
+        <p>Perfect Time,</p>
+        <p>Perfect Place,</p>
+        <p>Perfect Rest</p>
+      </aside>
+    </div>
+  );
+};
 
 export default SignIn;

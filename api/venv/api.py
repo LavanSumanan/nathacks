@@ -12,9 +12,9 @@ def test():
 @app.route('/login', methods=["POST", "GET"])
 def login():
     if request.method == "POST":  # If theres actual things passed into the form
-
-        username = str(request.form["username"])
-        password = str(request.form["password"])
+        content = request.get_json()
+        username = str(content['username'])
+        password = str(content['password'])
 
         print(login.login(username, password))
         return login.login(username, password)
