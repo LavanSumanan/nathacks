@@ -7,6 +7,7 @@ class SignIn extends Component {
       username: "",
       password: "",
       loginError: "",
+
       // for login:
       // if data === "success": ""
       // if data === "dne": "User does not exist!"
@@ -53,42 +54,61 @@ class SignIn extends Component {
 
   render() {
     return (
-      <div>
-        <p>Logo</p>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label>
-              Username
+      <div className="signin-container">
+        <header className="header-box">
+          <img src="" alt="logo" />
+          <h2>Name</h2>
+        </header>
+
+        <section className="login-section">
+          <form onSubmit={this.handleSubmit}>
+            <div className="username-div">
+              <label>
+                Username
+                <input
+                  required
+                  type="text"
+                  onChange={this.handleChange}
+                  name="username"
+                  value={this.state.username}
+                />
+              </label>
+            </div>
+            <div className="password-div">
+              <label>
+                Password
+                <input
+                  required
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                />
+              </label>
+            </div>
+            <br />
+            <div className="signin-buttons">
               <input
-                required
-                type="text"
-                onChange={this.handleChange}
-                name="username"
-                value={this.state.username}
+                className="login-btn"
+                name="login"
+                type="submit"
+                value="Login"
               />
-            </label>
-          </div>
-          <div>
-            <label>
-              Password
               <input
-                required
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleChange}
+                className="signin-btn"
+                name="signup"
+                type="submit"
+                value="Sign Up"
               />
-            </label>
-          </div>
-          <label>
-            Log In
-            <input name="login" type="submit" value="Submit" />
-          </label>
-          <label>
-            Sign Up
-            <input name="signup" type="submit" value="Submit" />
-          </label>
-        </form>
+            </div>
+          </form>
+        </section>
+
+        <aside className="banner">
+          <p>Perfect Time,</p>
+          <p>Perfect Place,</p>
+          <p>Perfect Rest</p>
+        </aside>
       </div>
     );
   }
