@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "../signin.css";
+import Nat_Logo from './Nathacks_Logo.png';
+
 
 class SignIn extends Component {
   constructor(props) {
@@ -57,8 +59,7 @@ class SignIn extends Component {
     return (
       <div className="signin-container">
         <header className="header-box">
-          <img src="" alt="logo" />
-          <h2>Name</h2>
+          <img src={Nat_Logo} alt="logo" />
         </header>
 
         <section className="login-section">
@@ -106,9 +107,10 @@ class SignIn extends Component {
         </section>
 
         <aside className="banner">
+          <p>TABIS</p>
           <p>Perfect Time,</p>
           <p>Perfect Place,</p>
-          <p>Perfect Rest</p>
+          <p>Perfect Rest,</p>
         </aside>
       </div>
     );
