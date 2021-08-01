@@ -1,24 +1,22 @@
-import React, { Component } from "react";
+import { useState } from "react";
+
 import SignIn from "./components/SignIn";
 import Header from "./components/Header";
 // import NavBar from "./components/NavBar";
 import "./App.css";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoggedIn: false,
-    };
-  }
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
+  const [page, setPage] = useState(<SignIn />);
 
-  render() {
-    return (
-      <div className="App">
-        <SignIn />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <SignIn />
+    </div>
+  );
 }
 
 export default App;
