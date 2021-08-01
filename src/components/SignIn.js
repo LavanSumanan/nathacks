@@ -89,14 +89,15 @@ const SignIn = (props) => {
           </div>
           <br />
           <div className="signin-buttons">
-            <input
+            <p
               className="login-btn"
+              type='button'
               name="login"
-              type="submit"
               value="Login"
               onClick={async () => {
+                console.log('reached')
                 const user = { username: username, password: password };
-                const response = await fetch("http://localhost:5000/login", {
+                const response = await fetch("/login", {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",
@@ -107,8 +108,10 @@ const SignIn = (props) => {
                 if (response.ok) {
                   console.log("response worked!");
                 }
+                // console.log(response);
               }}
-            />
+
+>Login</p>
             <input
               className="signin-btn"
               name="signup"

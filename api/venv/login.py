@@ -6,7 +6,7 @@ cluster = MongoClient(
 database = cluster["Data"]
 
 
-def login(username, password):
+def validate_login(username, password):
     if username in database.list_collection_names():
         userPost = database[username].find_one(
             {"_id": "Login Info"}, {"Password": 1})
@@ -29,3 +29,4 @@ def signUp(username, password):
         return {"signUp": "success"}  # hooray new account posted!
     else:
         return {"signUp": "exists"}  # Username exists
+

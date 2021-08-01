@@ -1,5 +1,5 @@
 from flask import Flask, request
-import login as login
+from login import validate_login
 
 app = Flask(__name__)
 
@@ -16,8 +16,8 @@ def login():
         username = str(content['username'])
         password = str(content['password'])
 
-        print(login.login(username, password))
-        return login.login(username, password)
+        print(validate_login(username, password))
+        return validate_login(username, password)
 
 
 @app.route('/signup', methods=["POST", "GET"])
