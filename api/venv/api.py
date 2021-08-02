@@ -1,5 +1,5 @@
-from flask import Flask,request
-import login as login
+from flask import Flask, request
+from login import validate_login
 
 app = Flask(__name__)
 
@@ -8,24 +8,24 @@ app = Flask(__name__)
 def test():
     return "<p>honk</p>"
 
-@app.route('/login', methods=["POST","GET"])
+
+@app.route('/login', methods=["POST", "GET"])
 def login():
-    if request.method == "POST": #If theres actual things passed into the form
-        
-        username = str(request.form["username"])
-        password = str(request.form["password"])
+    if request.method == "POST":  # If theres actual things passed into the form
+        content = request.get_json()
+        username = str(content['username'])
+        password = str(content['password'])
 
-        print (login.login(username,password)) 
-        return login.login(username,password) 
+        print(validate_login(username, password))
+        return validate_login(username, password)
 
 
-@app.route('/signup', methods=["POST","GET"])
+@app.route('/signup', methods=["POST", "GET"])
 def signup():
-    if request.method == "POST": #If theres actual things passed into the form
-        
+    if request.method == "POST":  # If theres actual things passed into the form
+
         username = str(request.form["username"])
         password = str(request.form["password"])
 
-        print (login.signUp(username,password)) 
-        return login.signUp(username,password) 
-
+        print(login.signUp(username, password))
+        return login.signUp(username, password)
