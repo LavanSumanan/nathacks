@@ -58,7 +58,6 @@ const SignIn = (props) => {
     <div className="signin-container">
       <header className="header-box">
         <img src="" alt="logo" />
-        <h2>Name</h2>
       </header>
 
       <section className="login-section">
