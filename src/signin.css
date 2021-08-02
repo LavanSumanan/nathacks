@@ -10,6 +10,7 @@ body {
     "header header aside"
     "input input aside"
     "input input aside";
+    background-image: url("https://cdn130.picsart.com/336629233056201.jpg");
 }
 
 .header-box {
@@ -17,8 +18,7 @@ body {
   justify-content: center;
   align-items: center;
   grid-area: header;
-  padding: 100px 50px;
-  margin: 20px 10px;
+  padding:100px 50px;
 }
 
 .login-section {
@@ -31,23 +31,64 @@ body {
     "password password"
     "login signin";
   grid-area: input;
-  padding: 10px 10px 10px 10px;
 }
 
 .username-div {
   grid-area: username;
+  color:#3a3042; 
+}
+
+.username-div label{
+  font-size: 25px ;
+  font-family:"Helvetica Neue";
+  margin: 0 0 10vh 0;
+}
+
+.username-div input{
+  border: 15px #3a3042;
+  border-radius: 5px;
+  background-color: #fdf7fa;
+  width: 150%;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem ;
 }
 
 .password-div {
   grid-area: password;
+  color:#3a3042;
+  font-family:"Helvetica Neue"; 
+}
+
+.password-div label{
+  font-size: 25px;
+  font-family:"Helvetica Neue";
+  margin: 0 0 10vh 0;
+}
+
+.password-div input{
+  border: 15px #3a3042;
+  border-radius: 5px;
+  background-color: #fdf7fa;
+  width: 150%;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem ;
 }
 
 .login-btn {
   grid-area: login;
+  color:#3a3042;
+  font-family:"Helvetica Neue"; 
 }
 
 .signin-btn {
   grid-area: signin;
+  color:#3a3042;
+  background-color:#7A89c2;
+  border-style: hidden;
+  border-radius: 15px;
+  padding:15px 32px;
+  text-align: center;
+  font-size: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20 px 0 rgba(0,0,0,0.19);
+  font-family:"Helvetica Neue"; 
 }
 
 .signin-buttons {
@@ -64,4 +105,15 @@ body {
   grid-area: aside;
   padding: 50% 10px 50% 10px;
   background-color: #7A89c2;
+}
+
+.Title {
+  font-family:"Helvetica Neue"; 
+  font-size: 70px;
+  color:#3a3042
+}
+
+.Slogan {
+  font-family: "Lucida Handwriting", cursive;
+  color:#3a3042;
 }
