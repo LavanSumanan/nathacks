@@ -56,9 +56,9 @@ const SignIn = ({ setPage }) => {
   };
 
   return (
-    <div className="signin-container">
+    <div className="signin-container">   
       <header className="header-box">
-        <img src="" alt="logo" />
+        <img src="/Photos/Nathacks_Logo.png" alt="logo" />
       </header>
 
       <section className="login-section">
@@ -99,10 +99,10 @@ const SignIn = ({ setPage }) => {
       </section>
 
       <aside className="banner">
-        <p>TABIS</p>
-        <p>Perfect Time,</p>
-        <p>Perfect Place,</p>
-        <p>Perfect Rest</p>
+        <p className="Title">TABIS</p>
+        <p className="Slogan">Perfect Time,</p>
+        <p className="Slogan">Perfect Place,</p>
+        <p className="Slogan">Perfect Rest</p>
       </aside>
     </div>
   );
