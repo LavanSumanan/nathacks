@@ -6,11 +6,12 @@ load_dotenv()
 
 # MONGO STUFF
 cluster = MongoClient(
-    os.getenv("MONGO_KEY"))
+    "mongodb+srv://ivan:123@cluster.8jail.mongodb.net/NatHack2?retryWrites=true&w=majority")
 database = cluster["Data"]
 
 
 def validate_login(username, password):
+    print(database.list_collection_names())
     if username in database.list_collection_names():
         userPost = database[username].find_one(
             {"_id": "Login Info"}, {"Password": 1})
@@ -22,18 +23,21 @@ def validate_login(username, password):
         return {"login": "dne"}  # account doesn't exist
 
 
-def signUp(username, password):
+def sign_up_user(username, password):
     if not username in database.list_collection_names():
         userInitPost = {
             "_id": "Login Info",
             "Username": username,
-            "Password": password,
+            "Password": password
         }
 
         dataPost = {
-            "_id":"Wave Data",
+            "_id": "Wave Data",
+            "test": "abc"
         }
-        database[username].insert_many(userInitPost,dataPost)
+
+        database[username].insert_one(userInitPost)
+        database[username].insert_one(dataPost)
         return {"signUp": "success"}  # hooray new account posted!
     else:
         return {"signUp": "exists"}  # Username exists
