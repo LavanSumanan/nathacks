@@ -6,7 +6,7 @@ body {
 
 .home {
   display: grid;
-  grid-template-rows:
+  grid-template-areas:
     "nav header"
     "nav rowOne"
     "nav rowTwo";
@@ -17,7 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .header {

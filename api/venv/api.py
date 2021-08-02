@@ -1,5 +1,6 @@
 from flask import Flask, request
 from login import validate_login, sign_up_user
+from analyze_data import analyze_data
 
 app = Flask(__name__)
 
@@ -28,3 +29,7 @@ def signup():
         password = str(content['password'])
         print(sign_up_user(username, password))
         return sign_up_user(username, password)
+
+@app.route('/graph')
+def graph():
+    return analyze_data()

@@ -2,7 +2,7 @@ import NavBar from "./NavBar";
 import Header from "./Header";
 import "../home.css";
 
-const Home = () => {
+const Summary = () => {
   return (
     <div className="home">
       <NavBar className="nav" />
@@ -27,4 +27,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Summary;
