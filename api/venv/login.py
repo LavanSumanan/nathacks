@@ -29,7 +29,11 @@ def signUp(username, password):
             "Username": username,
             "Password": password,
         }
-        database[username].insert_one(userInitPost)
+
+        dataPost = {
+            "_id":"Wave Data",
+        }
+        database[username].insert_many(userInitPost,dataPost)
         return {"signUp": "success"}  # hooray new account posted!
     else:
         return {"signUp": "exists"}  # Username exists
