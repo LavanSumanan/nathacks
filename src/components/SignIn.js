@@ -123,6 +123,7 @@ const SignIn = (props) => {
       </section>
 
       <aside className="banner">
+        <p>TABIS</p>
         <p>Perfect Time,</p>
         <p>Perfect Place,</p>
         <p>Perfect Rest</p>
