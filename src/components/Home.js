@@ -2,10 +2,10 @@ import NavBar from "./NavBar";
 import Header from "./Header";
 import "../home.css";
 
-const Home = () => {
+const Home = ({ setPage }) => {
   return (
     <div className="home">
-      <NavBar className="nav" />
+      <NavBar setPage={setPage} className="nav" />
       <Header name="Lavan" />
       <div className="rowOne">
         <h2 className="label">

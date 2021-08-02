@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-import Test from "./Test";
 import SignIn from "./components/SignIn";
 import Home from "./components/Home";
 import Summary from "./components/Summary";
@@ -8,15 +7,7 @@ import Upload from "./components/Upload";
 import Graph from "./components/Graph";
 
 function App() {
-  const [page, setPage] = useState("graph");
-
-  if (page === "test") {
-    return (
-      <div className="App">
-        <Test />
-      </div>
-    );
-  }
+  const [page, setPage] = useState("signin");
 
   if (page === "signin") {
     return (
@@ -25,12 +16,6 @@ function App() {
       </div>
     );
   } else if (page === "home") {
-    return (
-      <div className="App">
-        <Home />
-      </div>
-    );
-  } else if (page === "summary") {
     return (
       <div className="App">
         <Summary setPage={setPage} />

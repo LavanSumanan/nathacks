@@ -38,5 +38,12 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "devDependencies": {
+    "@iconify-icons/bytesize": "^1.1.0",
+    "@iconify-icons/mono-icons": "^1.1.0",
+    "@iconify-icons/twemoji": "^1.1.2",
+    "@iconify/icons-bx": "^1.1.2",
+    "@iconify/react": "^1.1.4"
+  }
 }

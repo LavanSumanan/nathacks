@@ -1,13 +1,40 @@
-import { useState } from "react";
+import { Icon, InlineIcon } from "@iconify/react";
+import bxsHome from "@iconify/icons-bx/bxs-home";
 
-const NavBar = (props) => {
+const NavBar = ({ setPage }) => {
+  const handleClick = (e) => {
+    setPage(e.target.name);
+  };
+
   return (
     <div className="nav">
       {/* add image source here */}
-      <img alt="home" src="" />
-      <h2 className="nav-title">Upload</h2>
-      <h2 className="nav-title">Summary</h2>
-      <h2 className="nav-title">Schedule</h2>
+      <img
+        alt="logo"
+        src="/Photos/Nathacks_logo.png"
+        style={{ width: "150px" }}
+      />
+      <button
+        name="home"
+        className="nav-title transparent"
+        onClick={handleClick}
+      >
+        Summary
+      </button>
+      <button
+        name="upload"
+        className="nav-title transparent"
+        onClick={handleClick}
+      >
+        Upload
+      </button>
+      <button
+        name="graph"
+        className="nav-title transparent"
+        onClick={handleClick}
+      >
+        Table
+      </button>
     </div>
   );
 };
