@@ -1,12 +1,14 @@
 from flask import Flask, request
 from login import validate_login, sign_up_user
-from analyze_data import analyze_data
+from analyze_data import analyze_data_func
+import json
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def test():
-    return "<p>honk</p>"
+    return "<p>hyönk</p>"
 
 
 @app.route('/login', methods=["POST", "GET"])
@@ -29,6 +31,9 @@ def signup():
         print(sign_up_user(username, password))
         return sign_up_user(username, password)
 
+
 @app.route('/graph')
 def graph():
-    return analyze_data()
+    data = analyze_data_func()
+    # print(data)
+    return data
