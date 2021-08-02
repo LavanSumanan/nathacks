@@ -41,14 +41,14 @@ body {
 .username-div label{
   font-size: 25px ;
   font-family:"Helvetica Neue";
-  margin: 0 0 10vh 0;
+  margin: 0 0 2vh 0;
 }
 
 .username-div input{
   border: 15px #3a3042;
   border-radius: 5px;
   background-color: #fdf7fa;
-  width: 150%;
+  width: 120%;
   padding: 0.5rem 0.8rem 0.5rem 0.8rem ;
 }
 
@@ -61,20 +61,27 @@ body {
 .password-div label{
   font-size: 25px;
   font-family:"Helvetica Neue";
-  margin: 0 0 10vh 0;
+  margin: 0 0 2vh 0;
 }
 
 .password-div input{
   border: 15px #3a3042;
   border-radius: 5px;
   background-color: #fdf7fa;
-  width: 150%;
+  width: 120%;
   padding: 0.5rem 0.8rem 0.5rem 0.8rem ;
 }
 
 .login-btn {
   grid-area: login;
   color:#3a3042;
+  background-color:#7A89c2;
+  border-style: hidden;
+  border-radius: 15px;
+  padding:15px 32px;
+  text-align: center;
+  font-size: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20 px 0 rgba(0,0,0,0.19);
   font-family:"Helvetica Neue"; 
 }
 
