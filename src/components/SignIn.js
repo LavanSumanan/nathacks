@@ -7,6 +7,16 @@ const SignIn = ({ setPage }) => {
   const [loginError, setLoginError] = useState("");
 
   const signupPostRequest = () => {
+    if (username.length === 0) {
+      setLoginError("Username cannot be empty");
+      return;
+    } else if (password.length === 0) {
+      setLoginError("Password cannot be empty");
+      return;
+    } else {
+      setLoginError("");
+    }
+
     const data = { username, password };
 
     const options = {
@@ -22,14 +32,25 @@ const SignIn = ({ setPage }) => {
       .then((responsedata) => {
         console.log(responsedata);
         if (responsedata.signUp === "exists") {
-          setLoginError("That username is taken");
+          setPage("home");
         } else {
-          setLoginError("");
+          setLoginError("User registered");
+          setPage("home");
         }
       });
   };
 
   const loginPostRequest = () => {
+    if (username.length === 0) {
+      setLoginError("Username cannot be empty");
+      return;
+    } else if (password.length === 0) {
+      setLoginError("Password cannot be empty");
+      return;
+    } else {
+      setLoginError("");
+    }
+
     const data = { username, password };
 
     const options = {
@@ -56,7 +77,7 @@ const SignIn = ({ setPage }) => {
   };
 
   return (
-    <div className="signin-container">   
+    <div className="signin-container">
       <header className="header-box">
         <img src="/Photos/Nathacks_Logo.png" alt="logo" />
       </header>
@@ -88,14 +109,14 @@ const SignIn = ({ setPage }) => {
         </div>
         <br />
         <div className="signin-buttons">
-          <button className="login-btn" onClick={loginPostRequest}>
+          <button className="signin-btn" onClick={loginPostRequest}>
             Login
           </button>
           <button className="signin-btn" onClick={signupPostRequest}>
             Sign Up
           </button>
         </div>
-        <div>{loginError}</div>
+        <div className="login-error">{loginError}</div>
       </section>
 
       <aside className="banner">

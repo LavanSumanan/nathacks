@@ -8,6 +8,7 @@ const Header = ({ name }) => {
           src="" //Add image once folder of static images has been made
         ></img>
       </div>
+
       <div className="utilities">
         <button name="settings">
           <img alt="settings" src="" />
@@ -19,6 +20,7 @@ const Header = ({ name }) => {
           <img alt="profile" src="" />
         </button>
       </div>
+
     </header>
   );
 };

@@ -37,7 +37,7 @@ def sign_up_user(username, password):
         }
 
         database[username].insert_one(userInitPost)
-        database[username].insert_one(dataPost)
+        # database[username].insert_one(dataPost)
         return {"signUp": "success"}  # hooray new account posted!
     else:
         return {"signUp": "exists"}  # Username exists

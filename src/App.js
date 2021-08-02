@@ -18,7 +18,7 @@ function App() {
   if (page === "signin") {
     return (
       <div className="App">
-        <SignIn setpage={setPage} />
+        <SignIn setPage={setPage} />
       </div>
     );
   } else if (page === "home") {
