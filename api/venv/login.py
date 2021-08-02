@@ -1,8 +1,12 @@
+from dotenv import load_dotenv
+import os
 from pymongo import MongoClient
 
-# MONGO STUFF --> DO NOT LEAK THIS KEY PLEASE
+load_dotenv()
+
+# MONGO STUFF
 cluster = MongoClient(
-    "mongodb+srv://BrainHyonk:BrainHyonkPassword@cluster.b3id9.mongodb.net/Nat_Hack?retryWrites=true&w=majority")
+    os.getenv("MONGO_KEY"))
 database = cluster["Data"]
 
 
@@ -29,4 +33,3 @@ def signUp(username, password):
         return {"signUp": "success"}  # hooray new account posted!
     else:
         return {"signUp": "exists"}  # Username exists
-
